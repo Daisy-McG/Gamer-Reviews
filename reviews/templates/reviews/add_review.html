@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Review{% endblock %}
+
+{% block content %}
+    <form method="POST" enctype="multipart/form-data">
+        <h1>Add Review</h1>
+        {% csrf_token %} 
+        {{ form }}
+        {{ form.media }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
