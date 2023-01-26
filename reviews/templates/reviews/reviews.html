@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Review{% endblock %}
+
+{% block content %}
+    {% for review in reviews %}
+        <p>{{ review.name }}</p>
+        <p>{{ review.title }}</p>
+        <p>{{ review.game_name }}</p>
+        <p> {{ review.review_date }}</p>
+        <img src="{{review.image.url}}" alt="Game Review: {{review.title}}">
+        <p>{{ review.content|safe }}</p>
+        <p>{{ review.rating }}</p>
+        {% if request.user == review.user %} 
+        <a class="nav-link" href="{% url 'edit_review' review.id %}">Edit Review</a>
+        <a class="nav-link" href="{% url 'delete_review' review.id %}">Delete Review</a>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
