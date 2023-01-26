@@ -1,3 +1,4 @@
 env.py
 db.sqlite3
 .venv
+__pychache__
